@@ -1,0 +1,17 @@
+---
+- 
+  hosts: My_Group
+  tasks:
+    - 
+      apt:
+        update_cache: true
+      become: true
+      name: "Update APT package manager repositories cache"
+    - 
+      apt:
+        name: "{{ item }}"
+        state: present
+      become: true
+      name: "Install OpenJDK Java"
+      with_items: openjdk-8-jdk
+

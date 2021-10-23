@@ -1,0 +1,16 @@
+---
+- 
+  hosts: My_Group
+  tasks:
+    - 
+      apt:
+        update_cache: true
+      become: true
+      name: "Update APT package manager repositories cache"
+    - 
+      apt:
+        name: "{{ item }}"
+        state: present
+      become: true
+      name: "Install python3"
+      with_items: python3.8
